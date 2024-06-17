@@ -20,7 +20,12 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 app = Flask(__name__)
 
 
-@app.route("/", methods=['POST'])
+@app.route("/")
+def hello():
+    return "<h1>Hello World!</h1>"
+
+
+@app.route("/hook", methods=['POST'])
 def linebot():
     body = request.get_data(as_text=True)                    # 取得收到的訊息內容
     try:
